@@ -1,0 +1,48 @@
+
+@import '../../assets/styles/color.scss';
+@import '../../assets/styles/pxToRem.scss';
+
+@keyframes float {
+    0%,100%{
+		transform:translatey(0)
+	}
+	50%{
+		transform:translatey(-5px)
+	}
+}
+
+.login{
+
+    &__image{        
+      background-image: url('../../assets/images/login/imagem\ da\ tela\ de\ login.jpg') ;      
+      background-repeat: no-repeat;
+      background-size:cover;
+      background-position: bottom;   
+    }
+
+    &__logo{ 
+        width: 30%;
+        margin: auto;
+        border-radius:px(10);
+        box-shadow: 2px 2px 20px 5px rgb(176, 175, 175);
+        animation: float 2s ease-in-out infinite;
+    }
+
+    &__email, &__password{ 
+        border-radius:px(5);
+        border: px(1) solid rgba(128, 128, 128, 0.447);
+        &:focus{
+            outline: none;
+        }
+
+        &:focus::-webkit-input-placeholder{
+            opacity: 0;
+        }
+    }
+
+    &__enter{
+        background-color:$primary-color;
+        font-weight:bold;
+        box-shadow: 2px 2px 20px 2px rgb(176, 175, 175)
+    }
+}
