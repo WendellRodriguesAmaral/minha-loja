@@ -1,24 +1,27 @@
 
 @import '../../assets/styles/color.scss';
 @import '../../assets/styles/pxToRem.scss';
+@import '../../assets/styles/animations.scss';
 
-@keyframes float {
-    0%,100%{
-		transform:translatey(0)
-	}
-	50%{
-		transform:translatey(-5px)
-	}
-}
 
 .login{
 
     &__image{        
-      background-image: url('../../assets/images/login/imagem\ da\ tela\ de\ login.jpg') ;      
+      background-image:linear-gradient(
+        to  right top,
+        rgba(31, 85, 136, 0.424), $primary-color), url('../../assets/images/login/imagem\ da\ tela\ de\ login.jpg') ;      
       background-repeat: no-repeat;
-      background-size:cover;
-      background-position: bottom;   
+      background-size: cover;
+      background-position: 20% 80%;   
+      opacity: .9;
+   
     }
+
+    &__fields{
+        box-shadow: -20px 0px 50px 50px rgb(255, 255, 255);
+        z-index: 1;
+    }
+
 
     &__logo{ 
         width: 30%;
