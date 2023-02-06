@@ -6,3 +6,14 @@
 		transform:translatey(-5px)
 	}
 }
+
+
+
+@keyframes big-float {
+    0%,100%{
+		transform:translatey(0)
+	}
+	50%{
+		transform:translatey(-10px)
+	}
+}

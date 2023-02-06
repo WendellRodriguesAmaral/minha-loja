@@ -4,8 +4,9 @@
    <section class="login__fields col-xxl-4 col-xl-4 col-lg-4 col-md-5 min-vh-100 d-flex justify-content-center align-items-center">
 
     <div class="login__credentials col-sm-12 col-12 col-xxl-8 col-xl-10 col-6 col-lg-12 col-md-12 h-auto p-4 d-flex flex-column">
-        <img src="../../assets/images/login/logo.png" class="login__logo img-fluid mb-5 " alt="Logotipo Minha Loja">
+        <img src="../../assets/images/login/logo.png" class="login__logo img-fluid mb-4 " alt="Logotipo Minha Loja">
         <form class="d-flex flex-column" [formGroup]="loginForm" (ngSubmit)="login()" >
+            <h2 class="m-0 mb-2 p-0 text-center">Login</h2>
             
             <input class="login__email p-2" type="email" placeholder="Email" formControlName="email" >
             <message-validation
@@ -18,7 +19,7 @@
             </message-validation>
             
 
-            <input class="login__password mt-4 p-2" type="password" placeholder="Password" formControlName="password">
+            <input class="login__password mt-4 p-2" type="password" placeholder="Senha" formControlName="password">
             <message-validation
                 *ngIf="loginForm.get('password')?.errors?.required && loginForm.get('password')?.touched"
                 message="Password is required!">
@@ -27,9 +28,10 @@
                 *ngIf="loginForm.get('password')?.errors?.minlength"
                 message="Minimum password of 8 characters!">
             </message-validation>
+            <a class="mb-2 mt-1" routerLink="/new-password"> Esqueci minha senha </a> 
 
-            <button [disabled]="loginForm.invalid" class="login__enter mt-5 btn btn-primary p-3 mb-2">Enter</button>
-            <p>Don't have an account? <a routerLink="/register"> Click here </a> </p>
+            <button [disabled]="loginForm.invalid" class="login__enter mt-4 btn btn-primary p-3 mb-2">Enter</button>
+            <p>Não possui uma conta? <a routerLink="/register"> Clique aqui </a> </p>
         </form>
     </div>
 

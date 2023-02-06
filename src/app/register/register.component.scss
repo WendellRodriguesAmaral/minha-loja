@@ -1,0 +1,27 @@
+@import '../../assets/styles/color.scss';
+@import '../../assets/styles/pxToRem.scss';
+@import '../../assets/styles/animations.scss';
+
+.register{
+
+    &__container-logo{
+        background-color:$primary-color ;
+    }
+
+    &__logo{
+        animation: big-float 2.5s ease-in-out infinite;
+
+    }
+
+    &__name, &__email, &__date, &__password, &__phone{ 
+        border-radius:px(5);
+        border: px(1) solid rgba(128, 128, 128, 0.447);
+        &:focus{
+            outline: none;
+        }
+
+        &:focus::-webkit-input-placeholder{
+            opacity: 0;
+        }
+    }
+}

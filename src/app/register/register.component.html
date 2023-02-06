@@ -1,18 +1,82 @@
 <main class="w-100 min-vh-100 d-flex row g-0">
     
-    <section class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 min-vh-100 d-flex justify-content-center align-items-center bg-black">        
-        <div class="col-sm-12  h-auto p-4 d-flex flex-column bg-danger ">
-             <img src="../../assets/images/login/logo.png" class="img-fluid mb-5 col-1 m-auto" alt="Logotipo Minha Loja"> -
-            <form class="d-flex flex-column m-auto col-6" >
-                <input type="text">
-                <input type="text">
-                <input type="text">
-                <input type="text">
-                <input type="text">
-                <input type="text">
+    <section class="register  col-xxl-7 col-xl-7 col-lg-8 col-md-8 min-vh-100 col-sm-12 col-12  d-flex justify-content-center align-items-center">
+        <div class="register__container col-xxl-7 col-xl-8 col-lg-10 col-md-10 col-sm-10 col-11   h-auto  d-flex flex-column ">
+            <form [formGroup]="registerForm" (ngSubmit)="register()" class="register__form d-flex flex-column m-auto col-12 " >
+                <h1 class="m-0 mb-2 p-0 text-center mb-5">Cadastre-se</h1>
+
+                <input type="text" class="register__name p-2" placeholder="Nome completo" formControlName="name" >
+                <message-validation
+                    *ngIf="registerForm.get('name')?.errors?.required && registerForm.get('name')?.touched"
+                    message="Nome é obrigatório!">
+                </message-validation>
+                <message-validation
+                    *ngIf="registerForm.get('name')?.errors?.minlength"
+                    message="Obrigatório no minimo 10 caracteres!">
+                </message-validation>
+
+
+                <input type="text" class="register__email p-2 mt-4 " placeholder="email@email.com" formControlName="email" >
+                <message-validation
+                    *ngIf="registerForm.get('email')?.errors?.required && registerForm.get('email')?.touched"
+                    message="Email é obrigatório!">
+                </message-validation>
+                <message-validation
+                    *ngIf="registerForm.get('email')?.errors?.email"
+                    message="Digite um e-mail válido!">
+                </message-validation>
+
+
+
+
+                <label class="d-inline mt-4" >Data de nascimento:</label> <input class="register__date p-2 w-50 " type="date" formControlName="date">
+                <message-validation
+                    *ngIf="registerForm.get('date')?.errors?.required && registerForm.get('date')?.touched"
+                    message="Data de nascimento é obrigatório!">
+                </message-validation>
+
+
+
+
+                <input type="tel" class="register__phone p-2 mt-4 " placeholder="Telefone" formControlName="phone" pattern="[0-9]+$">
+                <message-validation
+                    *ngIf="registerForm.get('phone')?.errors?.required && registerForm.get('phone')?.touched"
+                    message="Telefone é obrigatório!">
+                </message-validation>
+                <message-validation
+                    *ngIf="registerForm.get('phone')?.errors?.pattern"
+                    message="Somente números!">
+                </message-validation>
+                <message-validation
+                    *ngIf="registerForm.get('phone')?.errors?.maxlength"
+                    message="Número invalido, máximo 12 caracteres">
+                </message-validation>
+
+
+                <input type="password" class="register__password p-2 mt-4" placeholder="Senha" formControlName="password" >
+                <message-validation
+                *ngIf="registerForm.get('password')?.errors?.required && registerForm.get('password')?.touched"
+                message="Senha é obrigatório!">
+                </message-validation>
+                <message-validation
+                    *ngIf="registerForm.get('password')?.errors?.minlength"
+                    message="Senha de no minimo 8 caracteres!">
+                </message-validation>                
+
+                <p class="mt-4"> Já possui uma conta? <a routerLink="/"> Clique aqui </a> </p>
+                
+                <div class="register__actions w-75 d-flex justify-content-around flex-wrap align-self-center mt-5">
+                    <input type="reset" class="register__reset  btn btn-danger p-3 mb-2 w-25">
+                    <button [disabled]="registerForm.invalid" type="submit" class="register__submit w-50 btn btn-primary p-3 mb-2">Enter</button>
+                </div>
             </form>
             
         </div>        
+    </section>
+
+    <section class="register__container-logo d-none d-md-flex col-xxl-5 col-xl-5 col-lg-4 col-md-4  min-vh-100 
+     justify-content-center align-items-center">
+        <img src="../../assets/images/login/logo.png" class="register__logo img-fluid w-50 " alt="Logotipo Minha Loja">         
     </section>
 
 
