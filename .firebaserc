@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "minhaloja-409bb": {
+      "hosting": {
+        "minha-loja": [
+          "minhaloja-409bb"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "minhaloja-409bb"
+  }
+}

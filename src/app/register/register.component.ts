@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
+import { RegisterService } from '../core/services/register/register.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm!: FormGroup;
 
-  constructor(private formBuilder:FormBuilder) { }
+  constructor(private formBuilder:FormBuilder, private registerService:RegisterService,  private toast: HotToastService, private route:Router) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -23,7 +26,17 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
-    console.log(this.registerForm.getRawValue());
+    const userData = this.registerForm.getRawValue();
+    this.registerService.register(userData.name, userData.email, userData.password)
+    .pipe(
+      this.toast.observe({
+        success:"Registrado com sucesso! \n Por favor efetue o Login.",
+        loading:"Registrando...",
+        error: ({message}) => `${message}`,
+      })
+    ).subscribe( ()=> this.route.navigate(['login']) );
+
+
     this.registerForm.reset();
   }
 
