@@ -32,7 +32,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.css"              
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": []
           },
@@ -103,6 +103,16 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "minha-loja:build:production",
+            "firebaseProject": "minhaloja-409bb",
+            "firebaseHostingSite": "minhaloja-409bb"
           }
         }
       }
