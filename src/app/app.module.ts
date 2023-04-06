@@ -14,12 +14,21 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { MenuComponent } from './shared/menu/menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon'
+import { PointerDirective } from './shared/pointer/pointer.directive';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    NewPasswordComponent,
+    NewPasswordComponent, 
+
+    
+
   ],
   imports: [
     
@@ -31,7 +40,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    HotToastModule.forRoot()
+    HotToastModule.forRoot(),
+    BrowserAnimationsModule,
+
     
 
   ],

@@ -8,7 +8,7 @@
         <form class="d-flex flex-column" [formGroup]="loginForm" (ngSubmit)="login()" >
             <h2 class="m-0 mb-2 p-0 text-center">Login</h2>
             
-            <input class="login__email p-2" type="email" placeholder="Email" formControlName="email" >
+            <input class="login__email p-2" type="email" placeholder="Email" formControlName="email" autocomplete="email" >
             <message-validation
                 *ngIf="loginForm.get('email')?.errors?.required && loginForm.get('email')?.touched"
                 message="Email is required!">
@@ -19,7 +19,7 @@
             </message-validation>
             
 
-            <input class="login__password mt-4 p-2" type="password" placeholder="Senha" formControlName="password">
+            <input class="login__password mt-4 p-2" type="password" placeholder="Senha" formControlName="password" autocomplete="current-password">
             <message-validation
                 *ngIf="loginForm.get('password')?.errors?.required && loginForm.get('password')?.touched"
                 message="Password is required!">

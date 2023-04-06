@@ -1,0 +1,33 @@
+<nav class="menu navbar navbar-expand-lg p-0 ">
+    <div class="container-fluid menu__items">
+        <img src="/assets/images/login/logo.png" alt="Logotipo da loja" class="menu__logo img-fluid"  />
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mx-1 " id="navbarSupportedContent">
+            <ul class="navbar-nav  mb-2 mb-lg-0  menu__options">
+                <li class="menu__btn--hover nav-item d-flex align-items-center me-3" routerLink="/products" appPointer >
+                    <mat-icon>home</mat-icon>
+                    <a class="nav-link menu__navbar-item ps-1" aria-current="page">Home</a>
+                </li>
+                <li class="menu__btn--hover nav-item d-flex align-items-center me-3" routerLink="/profile" appPointer>
+                    <mat-icon>person</mat-icon>
+                    <a class="nav-link menu__navbar-item ps-1" >Perfil</a>
+                </li>
+                <li class="menu__btn--hover nav-item d-flex align-items-center" routerLink="/" appPointer>
+                    <mat-icon>shope</mat-icon>
+                    <a class="nav-link menu__navbar-item ps-1" >Sua Loja </a>
+                </li>
+            </ul>
+            <form class="d-flex m-auto w-50" role="search">
+                <input class="form-control me-4" type="search" placeholder="Search" aria-label="Search" >
+                <button class="btn  menu__btn-search" type="submit" appPointer>Buscar</button>
+            </form>
+            <div class="menu__login-logout menu__btn--hover d-flex pe-4" (click)="logout()">
+                <mat-icon>exit_to_app</mat-icon>
+                <p class=" menu__login-logout-item mb-0 ps-2" appPointer>Logout</p>              
+            </div>
+        </div>
+    </div>
+</nav>

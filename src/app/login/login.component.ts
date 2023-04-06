@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../core/services/auth/auth.service';
 import { HotToastService } from '@ngneat/hot-toast';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
 
-  constructor(private formBuilder:FormBuilder, private auth:AuthService, private toast: HotToastService) { }
+  constructor(private formBuilder:FormBuilder, private auth:AuthService, private toast: HotToastService, private router:Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -30,7 +31,7 @@ export class LoginComponent implements OnInit {
        error:'Email e/ou senha inválidos.'
       })
     ).subscribe(
-      ()=>{console.log("deu certo")},
+      ()=>this.router.navigate(['/products']),
       (err)=>{console.log(err)}
     )
     this.loginForm.reset();

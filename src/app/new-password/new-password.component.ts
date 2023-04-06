@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Auth, sendPasswordResetEmail } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-new-password',
@@ -11,7 +13,7 @@ export class NewPasswordComponent implements OnInit {
   submitted: boolean = false;
   resetPassowordForm!:FormGroup;
 
-  constructor(private formBuilder:FormBuilder) { }
+  constructor(private formBuilder:FormBuilder, private auth: Auth) { }
 
   ngOnInit(): void {
     this.resetPassowordForm = this.formBuilder.group({
@@ -20,9 +22,12 @@ export class NewPasswordComponent implements OnInit {
   }
 
   resetPassword(): void {
-    console.log(this.resetPassowordForm.getRawValue())
-    this.resetPassowordForm.reset();
-    this.submitted = true;
+    const email = this.resetPassowordForm.get('email')?.value
+    from(sendPasswordResetEmail(this.auth,email))
+    .subscribe(()=>{
+      this.resetPassowordForm.reset();
+      this.submitted = true;
+    })
   }
 
 }

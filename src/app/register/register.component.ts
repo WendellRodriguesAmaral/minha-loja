@@ -30,12 +30,11 @@ export class RegisterComponent implements OnInit {
     this.registerService.register(userData.name, userData.email, userData.password)
     .pipe(
       this.toast.observe({
-        success:"Registrado com sucesso! \n Por favor efetue o Login.",
+        success:"Registrado com sucesso!",
         loading:"Registrando...",
-        error: ({message}) => `${message}`,
+        error: ({message}) => `${message}`.replace('Firebase:', ''),
       })
-    ).subscribe( ()=> this.route.navigate(['login']) );
-
+    ).subscribe(()=>this.route.navigate(['']));
 
     this.registerForm.reset();
   }

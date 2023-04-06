@@ -11,10 +11,11 @@ export class AuthService {
   constructor(private auth:Auth) { }
 
   login(email:string, password:string) {
-   return from(signInWithEmailAndPassword(this.auth, email,password)); //from converte o retorno para observable
+    return from(signInWithEmailAndPassword(this.auth, email,password)); //from converte o retorno para observable
   }
 
   logout(){
-    return from(this.auth.signOut());
+    return from(this.auth.signOut());    
   }
+
 }

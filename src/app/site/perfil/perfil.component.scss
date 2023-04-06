@@ -1,0 +1,14 @@
+@import "../../../assets/styles/color.scss";
+@import "../../../assets/styles/pxToRem.scss";
+@import "../../../assets/styles/animations.scss";
+
+
+.profile{
+   background-color: red;
+    min-height: 85vh;
+
+    &__data{
+        background-color:blue;
+        
+    }
+}

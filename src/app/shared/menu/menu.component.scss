@@ -1,0 +1,32 @@
+@import "../../../assets/styles/color.scss";
+@import "../../../assets/styles/pxToRem.scss";
+@import "../../../assets/styles/animations.scss";
+
+.menu {
+  background-color: $primary-color;
+  color: white;
+
+  &__logo {
+    width: 120px;
+    height: 110px;
+  }
+
+  &__options li a,
+  &__login-logout-item,
+  &__btn-search{
+    color:white;
+    font-weight: bold;
+    font-size: px(18);
+  }
+
+  &__btn-search{
+    background-color:$secondary-color;
+  }
+
+  &__btn--hover:hover{
+    color:$secondary-color;
+  }
+
+ 
+  
+}
